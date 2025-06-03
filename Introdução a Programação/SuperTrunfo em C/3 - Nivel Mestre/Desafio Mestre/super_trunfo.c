@@ -20,23 +20,25 @@ int main()
     char estado;
     char codigo_carta[4];
     char nome_cidade[50];
-    int populacao;
+    unsigned long int populacao;
     float area;
     float pib;
     int numero_pontos_turisticos;
     float pib_per_capita;
     float densidade;
+    float superpoder;
 
     // Carta 2
     char estado2;
     char codigo_carta2[4];
     char nome_cidade2[50];
-    int populacao2;
+    unsigned long int populacao2;
     float area2;
     float pib2;
     int numero_pontos_turisticos2;
     float densidade2;
     float pib_per_capita2;
+    float superpoder2;
 
     // ---> Leitura e Entrada dos Dados
     // Carta 1
@@ -59,6 +61,7 @@ int main()
     scanf("%d", &numero_pontos_turisticos);
     densidade = populacao/area;
     pib_per_capita = pib/populacao;
+    superpoder = (float)populacao+area+pib+(float)numero_pontos_turisticos+pib_per_capita+(1.0/densidade);
 
 
     // Carta 2
@@ -81,6 +84,8 @@ int main()
     scanf("%d", &numero_pontos_turisticos2);
     densidade2 = populacao2/area2;
     pib_per_capita2 = pib2/populacao2;
+    superpoder2 = (float)populacao2+area2+pib2+(float)numero_pontos_turisticos2+pib_per_capita2+(1.0/densidade2);
+
 
     /*Após o usuário inserir os dados de cada carta, seu 
     programa deve exibir na tela as informações cadastradas, 
@@ -98,7 +103,7 @@ int main()
     printf("Numero de Pontos Turisticos: %d\n", numero_pontos_turisticos);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade);
     printf("PIB per Capita: R$%.2f\n", pib_per_capita);
-
+    printf("Superpoder: %.2f\n",superpoder);
 
     //Carta 2
     printf("---[Apresentando | Carta 2]\n");
@@ -111,7 +116,17 @@ int main()
     printf("Numero de Pontos Turisticos: %d\n", numero_pontos_turisticos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per Capita: R$%.2f\n", pib_per_capita2);
+    printf("Superpoder: %.2f\n",superpoder2);
 
+    //Comparação para Resultados
+    printf("Comparação de Cartas:\n");
+    printf("População: Carta 1 venceu (%d)\n", populacao>populacao2);
+    printf("Área: Carta 1 venceu (%d)\n", area> area2);
+    printf("PIB: Carta 1 venceu (%d)\n",pib,pib2);
+    printf("Pontos Turísticos: Carta 1 venceu (%d)\n", numero_pontos_turisticos> numero_pontos_turisticos2);
+    printf("Densidade Populacional: Carta 2 venceu (%d)\n", densidade< densidade2);
+    printf("PIB per Capita: Carta 1 venceu (%d)\n",pib_per_capita>pib_per_capita2);
+    printf("Super Poder: Carta 1 venceu (%d)\n",superpoder>superpoder2);
     // Finalizador do Sistema
     return 0;
 }
