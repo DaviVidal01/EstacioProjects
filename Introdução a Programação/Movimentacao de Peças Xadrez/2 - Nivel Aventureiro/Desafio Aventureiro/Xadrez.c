@@ -3,6 +3,8 @@
 int main()
 {
     int i = 0;
+    int salto;
+    int passo = 0;
 
     // Torre 5 casas a Direita
     for (i = 0; i < 5; i++)
@@ -24,6 +26,21 @@ int main()
     {
         printf("Rainha movimenta a esquerda\n");
         i++;
+    }
+
+    // Quantos saltos do cavalo.
+    for (salto = 0; salto < 1; salto++)
+    {
+
+        // 2 passos para baixo
+        while (passo < 2)
+        {
+            printf("Cavalo movimenta para Baixo\n");
+            passo++;
+        }
+
+        // 1 passo para esquerda
+        printf("Cavalo movimenta para Esquerda\n");
     }
 
     return 0;
